@@ -1,0 +1,15 @@
+@import "tailwindcss";
+
+:root {
+  color-scheme: dark;
+}
+
+body {
+  margin: 0;
+  font-family: "Sora", "Manrope", "Segoe UI", sans-serif;
+  background-color: rgb(2 6 23);
+}
+
+* {
+  box-sizing: border-box;
+}
