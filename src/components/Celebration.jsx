@@ -30,12 +30,13 @@ function Celebration({ currentStreak }) {
 
   return (
     <div className="pointer-events-none fixed inset-0 z-50">
-      <div className="absolute inset-0 bg-gradient-to-r from-pink-500/10 to-blue-500/10" />
+      <div className="" />
 
       <div className="absolute inset-0 flex items-center justify-center">
        
       </div>
     </div>
+    
   );
 }
 
