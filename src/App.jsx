@@ -9,6 +9,7 @@ import Heatmap from "./components/Heatmap";
 import HabitGrid from "./components/HabitGrid";
 import Celebration from "./components/Celebration";
 import Fireworks from "./components/Fireworks";
+import MobileBlock from "./components/MobileBlock";
 
 const defaultHabits = [{ name: "Workout", days: Array(31).fill(false) }];
 
@@ -121,60 +122,62 @@ function App() {
   }
 
   return (
-    <Layout>
-      <Fireworks currentStreak={currentStreak} />
-      <Celebration currentStreak={currentStreak} />
-
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.4 }}
-      >
-        <StatsCards
-          habits={habits}
-          daysInMonth={daysInMonth}
-          currentStreak={currentStreak}
-          bestStreak={bestStreak}
-          weeklyCompleted={weeklyCompleted}
-          weeklyPercent={weeklyPercent}
-        />
+    <MobileBlock>
+      <Layout>
+        <Fireworks currentStreak={currentStreak} />
+        <Celebration currentStreak={currentStreak} />
 
         <motion.div
-          initial={{ opacity: 0, y: 15 }}
+          initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.3 }}
+          transition={{ duration: 0.4 }}
         >
-          <MotivationBanner currentStreak={currentStreak} />
-        </motion.div>
-
-        <div className="mt-6 grid grid-cols-1 gap-6 lg:grid-cols-3">
-          <div className="lg:col-span-2">
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.6 }}
-            >
-              <Charts habits={habits} daysInMonth={daysInMonth} />
-            </motion.div>
-          </div>
-
-          <Achievements
+          <StatsCards
+            habits={habits}
+            daysInMonth={daysInMonth}
             currentStreak={currentStreak}
             bestStreak={bestStreak}
+            weeklyCompleted={weeklyCompleted}
             weeklyPercent={weeklyPercent}
           />
-        </div>
 
-        <Heatmap habits={habits} daysInMonth={daysInMonth} />
+          <motion.div
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.3 }}
+          >
+            <MotivationBanner currentStreak={currentStreak} />
+          </motion.div>
 
-        <HabitGrid
-          habits={habits}
-          setHabits={setHabits}
-          addHabit={addHabit}
-          daysInMonth={daysInMonth}
-        />
-      </motion.div>
-    </Layout>
+          <div className="mt-6 grid grid-cols-1 gap-6 lg:grid-cols-3">
+            <div className="lg:col-span-2">
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.6 }}
+              >
+                <Charts habits={habits} daysInMonth={daysInMonth} />
+              </motion.div>
+            </div>
+
+            <Achievements
+              currentStreak={currentStreak}
+              bestStreak={bestStreak}
+              weeklyPercent={weeklyPercent}
+            />
+          </div>
+
+          <Heatmap habits={habits} daysInMonth={daysInMonth} />
+
+          <HabitGrid
+            habits={habits}
+            setHabits={setHabits}
+            addHabit={addHabit}
+            daysInMonth={daysInMonth}
+          />
+        </motion.div>
+      </Layout>
+    </MobileBlock>
   );
 }
 
