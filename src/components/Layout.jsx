@@ -1,5 +1,6 @@
 import Sidebar from "./Sidebar";
 import Header from "./Header";
+import Footer from "./Footer";
 
 function Layout({ children }) {
   return (
@@ -7,9 +8,10 @@ function Layout({ children }) {
       <div className="flex">
         <Sidebar />
 
-        <main className="ml-64 min-h-screen flex-1">
+        <main className="ml-64 flex min-h-screen flex-1 flex-col">
           <Header />
-          <section className="p-6">{children}</section>
+          <section className="flex-1 p-6">{children}</section>
+          <Footer />
         </main>
       </div>
     </div>
