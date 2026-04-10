@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-
+import logo from "../assets/Smart Habit Logo.png";
 const navItems = [
   {
     label: "Dashboard",
@@ -67,7 +67,8 @@ const navItems = [
 function Sidebar() {
   return (
     <aside className="fixed left-0 top-0 h-screen w-64 bg-slate-900 p-4 text-slate-200 shadow-2xl shadow-black/30">
-      <div className="mb-10 rounded-xl border border-slate-800 bg-slate-950/70 px-4 py-3">
+      <div className="mb-10 rounded-xl border border-slate-800 bg-slate-950/70 px-4 py-3 flex items-center gap-3 justify-center">
+        <img src={logo} alt="Logo" className="w-10 h-10 object-contain" />
         <p className="text-lg font-semibold tracking-wide text-slate-100">
           Smart Habit
         </p>
